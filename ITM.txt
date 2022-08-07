@@ -1,0 +1,30 @@
+Idiots Turing Machine 
+esolang by alan malan
+
+how does it works?
+it is based in the esolang brainfuck, it has a 1 dimentional tape (represented by the tape array) and a pointer that points the curent cell
+and can change the curent cell value. and comands can work in diferent ways depending on the curent cell value
+unlike in brainfuck the cell wraps back around after 256, in brainfuck a cell wraps up after 255
+
+comand: 
+ Basic tape functions
+< :: moves pointer to the left
+> :: moves pointer to the right
++ :: adds 1 to the curent cell
+- :: subtracts 1 from the curent cell
+ I/O
+. :: outputs the value of the curent cell as a character (based on ascii)
+: :: outputs the value of the curent cell as a integer
+, :: waits till user input and stores it in the curent cell as a integer
+ Halting
+x :: stops the program
+* :: stops the program if the curent cell value is over 0
+$ :: stops the program if the curent cell value is 0
+ jumping
+0 :: jumps to the start of the program
+# :: skips the next comand if the value of the curent cell is over 0
+@ :: skips the next comand if the value of the curent cell is 0
+¢ :: jumps to the instruction coresponding the value of the curent cell
+.
+programs are limited to 90 characters of lenght (gowing to be extended soon)
+the interpreter is only 5 mb big
