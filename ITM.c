@@ -1,6 +1,7 @@
 //idiots turing machine
 #include <stdio.h> 
 #include <conio.h>
+#include <windows.h>
 
 void egg(char* somethingrelevant){
 	fgets(somethingrelevant, 261, stdin);
@@ -44,6 +45,7 @@ int main(int argc, char** argv){
 	int pointer = 0;
 	int index = 0;
 	int aa;
+	int IS=0;
 	egg(code);
 	while (pointer < tape_length){
 		tape[pointer] = 0;
@@ -125,11 +127,26 @@ int main(int argc, char** argv){
 					index = tape[pointer];
 				}
 				break;
-			case '0':
-				index = 0;
+			case '{':
+				if (tape[pointer] != 0){
+					index = left_bracket(index, code);
+				}
+				break;
+			case '}': 
+				if (tape[pointer] == 0){
+					index = right_bracket(index, code);
+				}
+				break;
+			case '\\':
+				IS = index;
+				break;
+			case '/':
+				index = IS;
 				break;
 			default:
 				printf("error %d \n", code[index]);
+				Beep(1000, 1000);
+				break;
 		}
 		if (index >= code_lenght){
 			index = 0;
